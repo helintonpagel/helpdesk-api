@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:3000
+
+### Listar todas as categorias
+GET {{baseUrl}}/categorias
+Accept: application/json
+
+### Listar todos os técnicos ativos
+GET {{baseUrl}}/tecnicos
+Accept: application/json
