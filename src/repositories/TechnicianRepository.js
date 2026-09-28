@@ -8,8 +8,10 @@ export class TechnicianRepository {
 
   async findAll() {
     const query = `
-      SELECT id, name, email, created_at, updated_at
-      FROM technicians ORDER BY id ASC      
+      SELECT id, name, email, created_at as createdAt, updated_at as updatedAt
+      FROM technicians
+      WHERE deleted_at IS NULL
+      ORDER BY id ASC      
     `;
     const [rows] = await this.pool.query(query);
     return rows.map((row) => new Technician(row));
@@ -17,8 +19,9 @@ export class TechnicianRepository {
 
   async findById(id) {
     const query = `
-      SELECT id, name, email, created_at, updated_at
-      FROM technicians WHERE id = ?      
+      SELECT id, name, email, created_at as createdAt, updated_at as updatedAt
+      FROM technicians
+      WHERE id = ? AND deleted_at IS NULL      
     `;
     const [rows] = await this.pool.execute(query, [id]);
     return rows.length > 0 ? new Technician(rows[0]) : null;

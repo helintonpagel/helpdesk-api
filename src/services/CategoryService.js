@@ -1,4 +1,5 @@
 import { CategoryRepository } from "../repositories/CategoryRepository.js";
+import { AppError } from "../utils/AppError.js";
 
 export class CategoryService {
   constructor(repository = new CategoryRepository()) {
@@ -10,6 +11,10 @@ export class CategoryService {
   }
 
   async getById(id) {
-    return await this.repository.findById(id);
+    const category = await this.repository.findById(id);
+    if (!category) {
+      throw new AppError("Categoria não encontrada.", 404);
+    }
+    return category;
   }
 }

@@ -76,19 +76,24 @@ Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
    O servidor estará disponível em `http://localhost:3000`.
 
-## Endpoints Disponíveis (Sprint 1)
+## Endpoints Disponíveis
 
-| Método | Endpoint      | Descrição                                  |
-| ------ | ------------- | ------------------------------------------ |
-| `GET`  | `/categorias` | Lista todas as categorias de chamados      |
-| `GET`  | `/tecnicos`   | Lista todos os técnicos ativos cadastrados |
+| Método   | Endpoint            | Descrição                                               |
+| :------- | :------------------ | :------------------------------------------------------ |
+| `GET`    | `/categorias`       | Lista todas as categorias de chamados                   |
+| `GET`    | `/tecnicos`         | Lista todos os técnicos ativos cadastrados              |
+| `GET`    | `/solicitantes`     | Lista todos os solicitantes ativos cadastrados          |
+| `GET`    | `/solicitantes/:id` | Retorna os detalhes de um solicitante específico por ID |
+| `POST`   | `/solicitantes`     | Cria um novo solicitante                                |
+| `PUT`    | `/solicitantes/:id` | Atualiza os dados de um solicitante específico por ID   |
+| `DELETE` | `/solicitantes/:id` | Remove um solicitante específico por ID                 |
 
 > As requisições de teste podem ser executadas diretamente utilizando o arquivo `requests/api.rest` com a extensão **REST Client** no VS Code, ou importadas no Insomnia/Postman.
 
 ## Cronograma de Sprints
 
 - [x] **Sprint 1:** Preparação do projeto, conexão com o banco de dados e consultas iniciais (`/categorias` e `/tecnicos`).
-- [ ] **Sprint 2:** Gerenciamento completo (CRUD) de solicitantes (`/solicitantes`).
+- [X] **Sprint 2:** Gerenciamento completo (CRUD) de solicitantes (`/solicitantes`).
 - [ ] **Sprint 3:** Criação e consulta de chamados (`/chamados`).
 - [ ] **Sprint 4:** Atribuição de técnico, atualização de chamados e regras de negócio.
 - [ ] **Sprint 5:** Exclusão e filtros de consulta de chamados.

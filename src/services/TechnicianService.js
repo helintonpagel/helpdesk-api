@@ -1,4 +1,5 @@
 import { TechnicianRepository } from "../repositories/TechnicianRepository.js";
+import { AppError } from "../utils/AppError.js";
 
 export class TechnicianService {
   constructor(repository = new TechnicianRepository()) {
@@ -10,6 +11,10 @@ export class TechnicianService {
   }
 
   async getById(id) {
-    return await this.repository.findById(id);
+    const technician = await this.repository.findById(id);
+    if (!technician) {
+      throw new AppError("Técnico não encontrado.", 404);
+    }
+    return technician;
   }
 }

@@ -4,6 +4,28 @@
 GET {{baseUrl}}/categorias
 Accept: application/json
 
+### Buscar categoria por ID
+GET {{baseUrl}}/categorias/1
+
+### Buscar categoria inexistente por ID (404 Not Found)
+GET {{baseUrl}}/categorias/999
+
 ### Listar todos os técnicos ativos
 GET {{baseUrl}}/tecnicos
 Accept: application/json
+
+### Buscar técnico por ID
+GET {{baseUrl}}/tecnicos/1
+
+### Buscar técnico inexistente por ID (404 Not Found)
+GET {{baseUrl}}/tecnicos/999
+
+### Testar interceptação de JSON malformado (Gera SyntaxError 400)
+POST http://localhost:3000/solicitantes
+Content-Type: application/json
+
+{
+  "name": "Ana Souza",
+  "email": "ana@empresa.com",
+  "department": "Finance",  <-- Note a vírgula sobrando aqui no final...
+}

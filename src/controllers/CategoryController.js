@@ -21,10 +21,6 @@ export class CategoryController {
     try {
       const { id } = req.params;
       const category = await this.service.getById(id);
-
-      if (!category) {
-        return res.status(404).json({ message: "Category not found" });
-      }
       return res.status(200).json(category);
     } catch (error) {
       next(error);

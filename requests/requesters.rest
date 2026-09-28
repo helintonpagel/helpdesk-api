@@ -1,0 +1,39 @@
+### Listar todos os solicitantes
+GET http://localhost:3000/solicitantes
+
+### Buscar solicitante por ID
+GET http://localhost:3000/solicitantes/1
+
+### Buscar solicitante inexistente por ID (404 Not Found)
+GET http://localhost:3000/solicitantes/999
+
+### Cadastrar novo solicitante (201 Created)
+POST http://localhost:3000/solicitantes
+Content-Type: application/json
+
+{
+  "name": "Beatriz Rocha",
+  "email": "beatriz.rocha@empresa.com.br",
+  "department": "TI"
+}
+
+### Teste de erro: Cadastrar solicitante sem campos obrigatórios (400 Bad Request)
+POST http://localhost:3000/solicitantes
+Content-Type: application/json
+
+{
+  "name": "Usuário Incompleto"
+}
+
+### Atualizar solicitante (200 OK)
+PUT http://localhost:3000/solicitantes/5
+Content-Type: application/json
+
+{
+  "name": "Beatriz Rocha Silva",
+  "email": "beatriz.rocha@empresa.com.br",
+  "department": "Infraestrutura"
+}
+
+### Excluir solicitante (200 OK - Soft Delete)
+DELETE http://localhost:3000/solicitantes/5

@@ -21,10 +21,6 @@ export class TechnicianController {
     try {
       const { id } = req.params;
       const technician = await this.service.getById(id);
-
-      if (!technician) {
-        return res.status(404).json({ message: "Technician not found" });
-      }
       return res.status(200).json(technician);
     } catch (error) {
       next(error);
